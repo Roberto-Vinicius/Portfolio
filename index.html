@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+
+    <title>Roberto</title>
+    <link rel="stylesheet" href="stylestyle.css">
+</head>
+<body>
+    <!-- CABEÇALHO -->
+    <header id="inicio">  
+        <nav>
+            <h2 class="logo-menu">&lt;/RV&gt</h2>
+            <button id="btn-mobile">Menu</button>
+            <ul class="menu">
+                <li>
+                    <a href="#inicio"><button class="menu-item">Inicio</button></a>
+                </li>
+                <li>
+                    <a href="#habilidades"><button  class="menu-item">Habilidades</button></a>
+                </li>
+                <li>
+                    <a href="#projetos"><button  class="menu-item">Projetos</button></a>
+                </li>
+                <li>
+                    <a href="#contato"><button  class="menu-item">Contato</button></a>
+                </li>
+            </ul>
+        </nav>
+        <div class="apresentacao">
+            <p>Hello Word</p>
+            <h1>My name is Roberto</h1>
+            <p>Developer front-end</p>
+        </div>
+        <div class="social">
+            <a href="https://www.instagram.com/r_suiciniv/" target="_blank" rel="external"><img src="icons/instagram.png" alt="logo do intagram"></a>
+
+            <a href="https://github.com/Roberto-Vinicius" target="_blank" rel="external"><img src="icons/github.png" alt="logo do github"></a>
+            
+            <a href="https://www.linkedin.com/in/robertoviniciusd/" target="_blank" rel="external"><img src="icons/linkedin.png" alt="logo do linkedin"></a>
+        </div>
+    </header>
+    <main>
+        <!-- HABILIDADES -->
+        <div id="habilidades">
+            <h2>Habilidades</h2>
+            <section>
+                <div class="tenho-conhecimento">
+                    <div>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" />
+                        <p>JAVASCRIPT</p>
+                    </div>
+                    <div>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" />
+                        HTML5
+                    </div>
+                    <div>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" />
+                        <p>CSS3</p>
+                    </div>
+                    <div>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" />
+                        <p>REACT</p>
+                    </div>
+                    <div>
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" />
+                        <p>PYTHON</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!-- PROJETOS -->
+        <div id="projetos">
+            <h2>Projetos</h2>
+                <div class="slides">
+                    <input type="radio" name="dot" id="one">
+                    <input type="radio" name="dot" id="two">
+                    <input type="radio" name="dot" id="three">
+                    <div class="cards_dos_projetos">
+                        <div class="card">
+                            <a href="https://roberto-vinicius.github.io/Tic_Tac_Toe/" target="_blank">
+                                <img src="Imagens/tic_tac_toe.jpg" alt="Imagem do tic-tac-toe">
+                            </a>
+                            <div class="cardText">
+                                <h3 class="projectName">
+                                    <strong>Jogo da velha</strong>
+                                </h3>
+                                <p>
+                                    Tech: <span>Javascript, HTML e CSS</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <a href="https://roberto-vinicius.github.io/Calculadora/" target="_blank">
+                                <img src="Imagens/calculadora.jpg" alt="Imagem da calculadora">
+                            </a>
+                            <div class="cardText">
+                                <h3 class="projectName">
+                                    <strong>Calculadora</strong>
+                                </h3>
+                                <p>
+                                    Tech: <span>Javascript, HTML e CSS</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img src="#" alt="">
+                            <div class="cardText">
+                                <h3 class="projectName"><strong>Costs</strong></h3>
+                                <p>Tech: <span>Javascript, HTML, CSS e React</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navigation">
+                        <label for="one" class="one"></label>
+                        <label for="two" class="two"></label>
+                        <label for="three" class="three"></label>
+                    </div>
+                </div>
+        </div>
+        <!-- CONTATOS -->
+        <div id="contato">
+            <h2>Fale comigo</h2>
+
+            <div class="container-form">
+                <form action="https://formsubmit.co/robertoviniciusfoda@gmail.com" method="POST">
+                    <div>
+                        <label for="name">SEU NOME:</label>
+                        <input type="text" required id="name" placeholder="Digite aqui">
+                    </div>
+                    <div>
+                        <label for="mail">E-MAIL:</label>
+                        <input type="email" required id="mail" placeholder="email@email.com">
+                    </div>
+                    <div>
+                        <label for="assunto">ASSUNTO:</label>
+                        <input type="text" required id="assunto" placeholder="Digite aqui">
+                    </div>
+                    <div>
+                        <label for="mensagem">MENSAGEM:</label>
+                        <textarea required id="mensagem" cols="30" rows="10" placeholder="Escreva sua mensagem aqui"></textarea>
+                    </div>
+                    <div>
+                        <button type="submit"> Enviar contato</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+
+    <!-- javascript -->
+    <script src="app.js"></script>
+
+</body>
+</html>
