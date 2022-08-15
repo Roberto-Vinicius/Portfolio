@@ -6,8 +6,6 @@
     box-sizing: border-box;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
-
 :root {
     /* Cores */
     --cor1: #458BA4;
@@ -16,7 +14,7 @@
     --cor4: #000000;
     --cor5: #ffffff; 
     /* Fontes */
-    --font1:  'Poppins', sans-serif;;
+    --font1: 'Poppins', sans-serif;
 }
 
 #inicio {
