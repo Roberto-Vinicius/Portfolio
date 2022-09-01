@@ -8,6 +8,21 @@ function toggleMenu() {
 
 btnMenu.addEventListener("click", toggleMenu);
 
+/* Efeito de Máquina de escrever */
+const dev = document.querySelector('.dev');
+
+function typeWrite(element) {
+    const textArray = element.innerHTML.split('');
+    element.innerHTML = '';
+    textArray.forEach((letra, i) => {
+        setTimeout(() => {
+            element.innerHTML += letra
+        }, 500 * i)
+    });
+}
+
+typeWrite(dev);
+
 /* Projetos slides */
 let count = 1;
 

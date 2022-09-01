@@ -8,10 +8,10 @@
 
 :root {
     /* Cores */
-    --cor1: #458BA4;
-    --cor2: #0b468c;
+    --cor1: #000000;
+    --cor2: #01FFF4;
     --cor3: #092047;
-    --cor4: #000000;
+    --cor4: #4B4B4B;
     --cor5: #ffffff; 
     /* Fontes */
     --font1: 'Poppins', sans-serif;
@@ -39,15 +39,15 @@ nav {
 
 .menu-item {
     background-color: var(--cor2);
-    color: var(--cor5);
+    color: var(--cor1);
     font-family: var(--font1);
-    font-size: 15px;
     font-weight: bold;
     text-align: center;
     margin: auto;
     width: 100px;
     padding: .6rem;
     border-radius: .3rem;
+    border: none;
     box-shadow: .5px .5px 10px var(--cor2);
     cursor: pointer;
 }
@@ -58,7 +58,6 @@ nav {
 
 .logo-menu {
     color: var(--cor2);
-    text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
     font-size: 2.5rem;
 }
 
@@ -75,7 +74,19 @@ nav {
     flex-direction: column;
     font-size: 4vw;
     font-family: var(--font1);
-    text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
+}
+
+.dev::after {
+    content: '';
+    position: relative;
+    border-right: 4px solid var(--cor2);
+    animation: blink 800ms linear infinite;
+    margin-left: 5px;
+}
+
+@keyframes blink {
+    from{opacity: 0;}
+    to{opacity: 1;}
 }
 
 .social {
@@ -131,13 +142,13 @@ nav {
 /* PROJETOS  */
 
 #projetos {
-	background-color: var(--cor4);
+	background-color: var(--cor1);
 	color: var(--cor5);
 	font-family: var(--font1);
 }
 
 #projetos h2 {
-    color: var(--cor5);
+    color: var(--cor2);
     display: flex;
     justify-content: center;
     padding: 30px 0 40px 0;
@@ -230,7 +241,7 @@ nav {
 }
 
 form {
-    background-color: var(--cor4);
+    background-color: var(--cor1);
     border-radius: 10px;
     width: 80%;
     padding: 0 20px 20px 20px;
@@ -259,7 +270,7 @@ form div textarea {
 }
 
 form button {
-    background-color: var(--cor2);
+    background-color: var(--cor3);
     color: var(--cor5);
     font-family: var(--font1);
     font-weight: bold;
@@ -267,12 +278,11 @@ form button {
     width: 150px;
     padding: .6rem;
     border-radius: .3rem;
-    box-shadow: .5px .5px 10px var(--cor2);
     cursor: pointer;
 }
 
 form button:hover {
-    box-shadow: inset 0 0 1em var(--cor2), 0 0 1em white;
+    box-shadow: inset 0 0 1em var(--cor3), 0 0 1em white;
 
 }
 
@@ -289,16 +299,21 @@ form button:hover {
         font-size: 4vw;
     }
 
+    .apresentacao p {
+        font-size: 6vw;
+    }
+
     #btn-mobile {
         display: block;
         background-color: var(--cor2);
-        color: var(--cor5);
+        color: var(--cor1);
         font-family: var(--font1);
         font-weight: 900;
         text-align: center;
         width: 90px;
         padding: .6rem;
         border-radius: .3rem;
+        border: none;
         box-shadow: .5px .5px 10px var(--cor2);
         cursor: pointer;
     }
@@ -331,6 +346,10 @@ form button:hover {
         font-size: 9vw;
     }
 
+    .tenho-conhecimento img {
+        height: 15vw;
+    }
+
     /* Projetos */
 
     #projetos {
@@ -358,7 +377,7 @@ form button:hover {
     }
 
     .navigation label {
-        border: 2px solid var(--cor3);
+        border: 2px solid var(--cor5);
         padding: 7px;
         margin: 0 10px;
         border-radius: 20px;
@@ -367,7 +386,7 @@ form button:hover {
     }
 
     .navigation label:hover {
-        background-color: var(--cor3);
+        background-color: var(--cor2);
     }
 
     #one:checked ~ .fisrt {
@@ -375,7 +394,7 @@ form button:hover {
     }
 
     #one:checked ~ .navigation .one{
-        background-color: var(--cor3);
+        background-color: var(--cor2);
     }
 
     #two:checked ~ .cards_dos_projetos {
@@ -383,7 +402,7 @@ form button:hover {
     }
 
     #two:checked ~ .navigation .two{
-        background-color: var(--cor3);
+        background-color: var(--cor2);
     }
 
     #three:checked ~ .cards_dos_projetos {
@@ -391,7 +410,7 @@ form button:hover {
     }
 
     #three:checked ~ .navigation .three{
-        background-color: var(--cor3);
+        background-color: var(--cor2);
     }
 
     /* Contatos */
@@ -402,6 +421,6 @@ form button:hover {
 
 @media (max-width: 400px) {
     .apresentacao {
-        font-size: 4.9vw;
+        font-size: 4.5vw;
     }
 }
