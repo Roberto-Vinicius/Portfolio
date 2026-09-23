@@ -43,19 +43,50 @@ const navItems = locale === "pt" ? [
 const skillsData = [
   {
     category: locale === "pt" ? "Linguagens" : "Languages",
-    items: ["JavaScript", "TypeScript", "PHP", "Python", "Bash", "HTML5", "CSS3"],
+    items: [
+      { name: "JavaScript", icon: "javascript" },
+      { name: "TypeScript", icon: "typescript" },
+      { name: "PHP", icon: "php" },
+      { name: "Python", icon: "python" },
+      { name: "Bash", icon: "bash" },
+      { name: "HTML5", icon: "html5" },
+      { name: "CSS3", icon: "css3" }
+    ],
   },
   {
     category: locale === "pt" ? "Frameworks & Libs" : "Frameworks & Libraries",
-    items: ["Laravel", "Vue.js", "React", "Node.js", "Bootstrap", "Tailwind CSS", "Astro"],
+    items: [
+      { name: "Laravel", icon: "laravel" },
+      { name: "Vue.js", icon: "vue" },
+      { name: "React", icon: "react" },
+      { name: "Node.js", icon: "nodejs" },
+      { name: "Bootstrap", icon: "bootstrap" },
+      { name: "Tailwind CSS", icon: "tailwind" },
+      { name: "Astro", icon: "astro" }
+    ],
   },
   {
     category: "DevOps & Cloud",
-    items: ["Docker", "Docker Compose", "CI/CD Pipelines", "Nginx", "Git / GitHub", "Linux", "Zero-Downtime Deploy"],
+    items: [
+      { name: "Docker", icon: "docker" },
+      { name: "Docker Compose", icon: "docker" },
+      { name: "CI/CD Pipelines", icon: "cicd" },
+      { name: "Nginx", icon: "nginx" },
+      { name: "Git / GitHub", icon: "git" },
+      { name: "Linux", icon: "linux" },
+      { name: "Zero-Downtime Deploy", icon: "deploy" }
+    ],
   },
   {
     category: locale === "pt" ? "Banco de Dados & Outros" : "Databases & Others",
-    items: ["PostgreSQL", "MySQL", "PHP-FPM", "REST APIs", "Rotinas de Backup", "Web Services"],
+    items: [
+      { name: "PostgreSQL", icon: "postgres" },
+      { name: "MySQL", icon: "mysql" },
+      { name: "PHP-FPM", icon: "php" },
+      { name: "REST APIs", icon: "api" },
+      { name: "Rotinas de Backup", icon: "backup" },
+      { name: "Web Services", icon: "web" }
+    ],
   },
 ];
 
@@ -117,18 +148,24 @@ const projects = locale === "pt" ? [
     title: "Infraestrutura Containerizada & CI/CD SESAP",
     description: "Arquitetura completa de microsserviços containerizados para ambiente público de produção com Docker, automação de backups, monitoramento de integridade e rollback automático.",
     link: "https://github.com/Roberto-Vinicius",
+    image: "", // Insira o caminho da imagem futuramente, ex: "/media/projeto-1.png"
+    tags: ["Docker", "Docker Compose", "CI/CD", "Nginx", "PostgreSQL", "Bash"]
   },
   {
     tag: "02 · Full Stack · Laravel · Vue.js · Postgres",
     title: "Sistemas Governamentais de Saúde Pública",
     description: "Aplicações escaláveis desenvolvidas em PHP (Laravel) e Vue.js integradas ao banco PostgreSQL para sustentação e modernização das rotinas da SESAP/RN.",
     link: "https://github.com/Roberto-Vinicius",
+    image: "",
+    tags: ["PHP", "Laravel", "Vue.js", "PostgreSQL", "REST APIs"]
   },
   {
     tag: "03 · WebGL · Three.js · Astro · Interativo",
     title: "Portfólio Espacial Interativo 3D",
     description: "Portfólio com simulação espacial 3D em Three.js, partículas interativas e arquitetura estática de alta performance no Astro.",
     link: "https://github.com/Roberto-Vinicius",
+    image: "",
+    tags: ["Astro", "TypeScript", "Three.js", "WebGL", "CSS Moderno"]
   },
 ] : [
   {
@@ -136,18 +173,24 @@ const projects = locale === "pt" ? [
     title: "Containerized Infrastructure & CI/CD SESAP",
     description: "Complete microservices container architecture for government production environments with Docker, automated backups, and rollback pipelines.",
     link: "https://github.com/Roberto-Vinicius",
+    image: "",
+    tags: ["Docker", "Docker Compose", "CI/CD", "Nginx", "PostgreSQL", "Bash"]
   },
   {
     tag: "02 · Full Stack · Laravel · Vue.js · Postgres",
     title: "Public Health Management Systems",
     description: "Scalable enterprise web applications built with PHP (Laravel) and Vue.js with PostgreSQL backend integrations for state health administration.",
     link: "https://github.com/Roberto-Vinicius",
+    image: "",
+    tags: ["PHP", "Laravel", "Vue.js", "PostgreSQL", "REST APIs"]
   },
   {
     tag: "03 · WebGL · Three.js · Astro · Interactive",
     title: "Interactive 3D Space Portfolio",
     description: "Interactive portfolio featuring real-time Three.js WebGL space simulation, custom interactive particle rendering, and fast Astro architecture.",
     link: "https://github.com/Roberto-Vinicius",
+    image: "",
+    tags: ["Astro", "TypeScript", "Three.js", "WebGL", "Modern CSS"]
   },
 ];
 ---
@@ -270,10 +313,18 @@ const projects = locale === "pt" ? [
 
   <!-- CONTEÚDO PRINCIPAL COM SEÇÕES E PAGINAÇÃO VISUAL -->
   <main class="page-content">
+    <div class="stats-badge zoomInDown" id="fps-stats">
+      <span class="stats-dot"></span>
+      <span class="stats-text" id="fps-val">60 FPS</span>
+      <span class="stats-sub">SYS OK</span>
+    </div>
     
     <!-- SEÇÃO 01: SOBRE MIM -->
     <section id="sobre" class="content-section">
-      <div class="section-badge">[ 01 ] {locale === "pt" ? "SOBRE" : "ABOUT"}</div>
+      <div class="section-badge-header">
+        <span class="teal-status-dot"></span>
+        <span class="section-eyebrow">[ 01 ] {locale === "pt" ? "Sobre" : "About"}</span>
+      </div>
       <h2 class="section-title">{locale === "pt" ? "Um pouco sobre mim" : "A bit about me"}</h2>
       
       <div class="about-grid">
@@ -333,7 +384,10 @@ const projects = locale === "pt" ? [
 
     <!-- SEÇÃO 02: HABILIDADES (STACK) -->
     <section id="habilidades" class="content-section">
-      <div class="section-badge">[ 02 ] STACK</div>
+      <div class="section-badge-header">
+        <span class="teal-status-dot"></span>
+        <span class="section-eyebrow">[ 02 ] {locale === "pt" ? "Habilidades" : "Skills"}</span>
+      </div>
       <h2 class="section-title">{locale === "pt" ? "Tecnologias que domino" : "Technologies I use"}</h2>
 
       <div class="skills-grid">
@@ -342,7 +396,86 @@ const projects = locale === "pt" ? [
             <h3 class="category-name">{group.category}</h3>
             <div class="pills-container">
               {group.items.map((skill) => (
-                <span class="skill-pill">{skill}</span>
+                <div class="skill-pill-square">
+                  <div class="skill-pill-icon">
+                    {skill.icon === "javascript" && (
+                      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 16c0 1.5-1 2-2 2s-1.5-.5-1.5-1.5"/><path d="M13 16.5c.8.8 2.2.8 2.2-.5s-1.2-1-2.2-1.5-1.2-1.5-.2-2.5 2.2 0 2.2 1"/></svg>
+                    )}
+                    {skill.icon === "typescript" && (
+                      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 8h6m-3 0v8m4-5c1-1 3-1 3 1s-1 1.5-2 2c-1 .5-1 1.5 0 2 1.5.5 3 0 3-1"/></svg>
+                    )}
+                    {skill.icon === "php" && (
+                      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h5a3 3 0 0 1 0 6H4V6zm0 6h4"/><path d="M12 6v12m0-6h5a3 3 0 0 1 0 6h-5"/><path d="M19 6h2a2 2 0 0 1 0 4h-2v4"/></svg>
+                    )}
+                    {skill.icon === "python" && (
+                      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2c-3.5 0-4 1.5-4 3v2h8V6c0-2-1.5-4-4-4z"/><path d="M12 22c3.5 0 4-1.5 4-3v-2H8v1c0 2 1.5 4 4 4z"/><path d="M5 8h6v8H5a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3z"/><path d="M19 8h-6v8h6a3 3 0 0 0 3-3v-2a3 3 0 0 0-3-3z"/></svg>
+                    )}
+                    {skill.icon === "bash" && (
+                      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 9l3 3-3 3m5 0h4"/></svg>
+                    )}
+                    {skill.icon === "html5" && (
+                      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 3l1.5 16 6.5 2 6.5-2L20 3H4zm13 5H7l.5 4h9l-.5 4-4 1.2-4-1.2-.2-2"/></svg>
+                    )}
+                    {skill.icon === "css3" && (
+                      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 3l1.5 16 6.5 2 6.5-2L20 3H4zm12.5 4H7.5l.3 3h8.4l-.6 6-3.6 1.1-3.6-1.1-.3-3"/></svg>
+                    )}
+                    {skill.icon === "laravel" && (
+                      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8l9-5 9 5v8l-9 5-9-5V8z"/><path d="M12 3v18"/><path d="M3 8l9 5 9-5"/></svg>
+                    )}
+                    {skill.icon === "vue" && (
+                      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h4.5l5.5 9.5L17.5 3H22L12 21 2 3z"/><path d="M6.5 3l5.5 9.5L17.5 3"/></svg>
+                    )}
+                    {skill.icon === "react" && (
+                      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(30 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(90 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(150 12 12)"/><circle cx="12" cy="12" r="1.8" fill="currentColor"/></svg>
+                    )}
+                    {skill.icon === "nodejs" && (
+                      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l9 5v10l-9 5-9-5V7l9-5z"/><path d="M12 7l5 3v5l-5 3-5-3v-5l5-3z"/></svg>
+                    )}
+                    {skill.icon === "bootstrap" && (
+                      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M9 8h3.5a2 2 0 0 1 0 4H9V8zm0 4h4a2 2 0 0 1 0 4H9v-4z"/></svg>
+                    )}
+                    {skill.icon === "tailwind" && (
+                      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 9c2-4 6-4 8-1 1 1.5 2 2.5 4 2.5 2.5 0 3.5-2 3.5-2s-2 4-6 4c-1 0-2-1-3-2S11.5 8 9 8C7 8 7 9 7 9zm-5 6c2-4 6-4 8-1 1 1.5 2 2.5 4 2.5 2.5 0 3.5-2 3.5-2s-2 4-6 4c-1 0-2-1-3-2S6.5 14 4 14C2 14 2 15 2 15z"/></svg>
+                    )}
+                    {skill.icon === "astro" && (
+                      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l4 7-4 2-4-2 4-7z"/><path d="M5 14l7 3 7-3-2 7-5 1-5-1-2-7z"/><circle cx="12" cy="11" r="1" fill="currentColor"/></svg>
+                    )}
+                    {skill.icon === "docker" && (
+                      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 13h20c-.5 5-4.5 8-10 8S2.5 18 2 13z"/><path d="M5 13V9h3v4H5zm4 0V9h3v4H9zm4 0V9h3v4h-3zm-4-5V5h3v3H9zm4 0V5h3v3h-3z"/></svg>
+                    )}
+                    {skill.icon === "cicd" && (
+                      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><circle cx="18" cy="6" r="3"/><path d="M6 9v6a3 3 0 0 0 3 3h6"/><path d="M18 9v6"/></svg>
+                    )}
+                    {skill.icon === "nginx" && (
+                      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4l8-2 8 2v16l-8 2-8-2V4z"/><path d="M8 8v8l8-8v8"/></svg>
+                    )}
+                    {skill.icon === "git" && (
+                      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 12.5l-9-9a1.5 1.5 0 0 0-2.1 0l-1.9 1.9 3 3a1.8 1.8 0 0 1 2.3 2.3l2.8 2.8a1.8 1.8 0 1 1-1.1 1.1l-2.6-2.6v3.2a1.8 1.8 0 1 1-1.5 0V11a1.8 1.8 0 0 1-.9-2.4l-2.9-2.9L2.5 10.4a1.5 1.5 0 0 0 0 2.1l9 9a1.5 1.5 0 0 0 2.1 0l7.9-7.9a1.5 1.5 0 0 0 0-2.1z"/></svg>
+                    )}
+                    {skill.icon === "linux" && (
+                      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3c-2.5 0-4 2-4 5 0 1.5.5 3 .5 4.5S7 15 5 16c-1 .5-1 2 0 2 3 0 4-2 7-2s4 2 7 2c1 0 1-1.5 0-2-2-1-3.5-2-3.5-3.5S16 9.5 16 8c0-3-1.5-5-4-5z"/></svg>
+                    )}
+                    {skill.icon === "deploy" && (
+                      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v8m0 0l-3-3m3 3l3-3"/><path d="M4 14v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4"/></svg>
+                    )}
+                    {skill.icon === "postgres" && (
+                      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3c-4.4 0-8 3.6-8 8 0 3.5 2.3 6.5 5.5 7.5V21l3.5-2h1c4.4 0 8-3.6 8-8s-3.6-8-8-8z"/><path d="M9 10c0-1.5 1.5-2 3-2s3 .5 3 2-1.5 2-3 2v4"/></svg>
+                    )}
+                    {skill.icon === "mysql" && (
+                      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="7" rx="8" ry="4"/><path d="M4 7v10c0 2.2 3.6 4 8 4s8-1.8 8-4V7"/><path d="M4 12c0 2.2 3.6 4 8 4s8-1.8 8-4"/></svg>
+                    )}
+                    {skill.icon === "api" && (
+                      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16m-6-6l6 6-6 6M10 6L4 12l6 6"/></svg>
+                    )}
+                    {skill.icon === "backup" && (
+                      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                    )}
+                    {skill.icon === "web" && (
+                      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    )}
+                  </div>
+                  <span class="skill-pill-name">{skill.name}</span>
+                </div>
               ))}
             </div>
           </div>
@@ -352,7 +485,10 @@ const projects = locale === "pt" ? [
 
     <!-- SEÇÃO 03: CARREIRA / EXPERIÊNCIA -->
     <section id="experiencia" class="content-section">
-      <div class="section-badge">[ 03 ] {locale === "pt" ? "CARREIRA" : "CAREER"}</div>
+      <div class="section-badge-header">
+        <span class="teal-status-dot"></span>
+        <span class="section-eyebrow">[ 03 ] {locale === "pt" ? "Carreira" : "Career"}</span>
+      </div>
       <h2 class="section-title">{locale === "pt" ? "Experiência profissional" : "Professional experience"}</h2>
 
       <div class="timeline-container">
@@ -378,47 +514,148 @@ const projects = locale === "pt" ? [
 
     <!-- SEÇÃO 04: PROJETOS -->
     <section id="projetos" class="content-section">
-      <div class="section-badge">[ 04 ] {locale === "pt" ? "PROJETOS" : "PROJECTS"}</div>
+      <div class="section-badge-header">
+        <span class="teal-status-dot"></span>
+        <span class="section-eyebrow">[ 04 ] {locale === "pt" ? "Projetos" : "Projects"}</span>
+      </div>
       <h2 class="section-title">{locale === "pt" ? "Projetos em destaque" : "Featured projects"}</h2>
 
       <div class="projects-grid">
         {projects.map((proj) => (
-          <div class="project-card">
-            <div class="project-tag">{proj.tag}</div>
-            <h3 class="project-title">{proj.title}</h3>
-            <p class="project-desc">{proj.description}</p>
-            <div class="project-bottom">
-              <a href={proj.link} target="_blank" rel="noopener noreferrer" class="project-link-btn">
-                {locale === "pt" ? "Ver projeto" : "View project"} <span>→</span>
-              </a>
+          <article class="project-card">
+            <div class="project-media-wrapper">
+              {proj.image ? (
+                <img src={proj.image} alt={proj.title} class="project-img" loading="lazy" />
+              ) : (
+                <div class="project-placeholder">
+                  <div class="placeholder-grid-lines"></div>
+                  <div class="placeholder-icon">
+                    <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.5">
+                      <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                      <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                      <polyline points="21 15 16 10 5 21"></polyline>
+                    </svg>
+                  </div>
+                  <span class="placeholder-text">{locale === "pt" ? "Pré-visualização do Projeto" : "Project Preview"}</span>
+                </div>
+              )}
+              <div class="project-tag-overlay">{proj.tag}</div>
             </div>
-          </div>
+
+            <div class="project-body">
+              <h3 class="project-title">{proj.title}</h3>
+              <p class="project-desc">{proj.description}</p>
+              
+              {proj.tags && (
+                <div class="project-pills">
+                  {proj.tags.map((t) => (
+                    <span class="project-pill">{t}</span>
+                  ))}
+                </div>
+              )}
+
+              <div class="project-bottom">
+                <a href={proj.link} target="_blank" rel="noopener noreferrer" class="project-link-btn">
+                  <span>{locale === "pt" ? "Ver código / Detalhes" : "View code / Details"}</span>
+                  <span class="btn-arrow">→</span>
+                </a>
+              </div>
+            </div>
+          </article>
         ))}
       </div>
     </section>
 
-    <!-- SEÇÃO 05: CONTATO -->
-    <section id="contato" class="content-section">
-      <div class="section-badge">[ 05 ] {locale === "pt" ? "CONTATO" : "CONTACT"}</div>
-      <h2 class="section-title">{locale === "pt" ? "Bora construir soluções juntos?" : "Let's build something great together"}</h2>
+    <!-- SEÇÃO 05: CONTATO (SPLIT COLUMN LAYOUT) -->
+    <section id="contato" class="content-section contact-split-section">
+      <div class="contact-split-grid">
+        
+        <!-- Coluna Esquerda: Chamada e Ação Direta -->
+        <div class="contact-left-col">
+          <div class="contact-badge-header">
+            <span class="teal-status-dot"></span>
+            <span class="contact-eyebrow">{locale === "pt" ? "Contato" : "Contact"}</span>
+          </div>
 
-      <div class="contact-card">
-        <p class="contact-lead">
-          {locale === "pt"
-            ? "Disponível para novos projetos full stack, arquitetura DevOps ou consultoria técnica. Respondo com rapidez."
-            : "Available for full stack engineering, DevOps architecture, or consulting opportunities. Get in touch."}
-        </p>
+          <h2 class="contact-headline">
+            {locale === "pt" 
+              ? "Se você precisa de um dev para tirar uma ideia do papel com mais profissionalismo, vamos conversar."
+              : "If you need a developer to bring your vision to life with true professionalism, let's talk."}
+          </h2>
 
-        <a href="mailto:robertodantas1030@gmail.com" class="email-cta">
-          robertodantas1030@gmail.com
-        </a>
+          <p class="contact-subtext">
+            {locale === "pt"
+              ? "Disponível para novos projetos full stack, arquitetura DevOps ou consultoria técnica. Respondo com rapidez."
+              : "Available for full stack engineering, DevOps architecture, or consulting opportunities. Fast response guaranteed."}
+          </p>
 
-        <div class="contact-links-row">
-          <a href="mailto:robertodantas1030@gmail.com" class="contact-link">Email</a>
-          <a href="https://www.linkedin.com/in/robertoviniciusd" target="_blank" rel="noopener noreferrer" class="contact-link">LinkedIn</a>
-          <a href="https://github.com/Roberto-Vinicius" target="_blank" rel="noopener noreferrer" class="contact-link">GitHub</a>
-          <a href="tel:+5584994056581" class="contact-link">(84) 99405-6581</a>
+          <div class="contact-action-btns">
+            <a href="mailto:robertodantas1030@gmail.com" class="btn-primary-orange">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span>E-mail</span>
+            </a>
+            <a href="https://www.linkedin.com/in/robertoviniciusd" target="_blank" rel="noopener noreferrer" class="btn-secondary-dark">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.25c-.9 0-1.63.73-1.63 1.63 0 .9.73 1.63 1.63 1.63.9 0 1.63-.73 1.63-1.63 0-.9-.73-1.63-1.63-1.63z"/></svg>
+              <span>Linkedin</span>
+            </a>
+          </div>
         </div>
+
+        <!-- Coluna Direita: Stack de Cards de Contato -->
+        <div class="contact-right-col">
+          <a href="mailto:robertodantas1030@gmail.com" class="contact-item-card">
+            <div class="contact-card-iconbox email-color">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div class="contact-card-info">
+              <span class="contact-card-label">E-mail</span>
+              <strong class="contact-card-val">robertodantas1030@gmail.com</strong>
+            </div>
+            <div class="contact-card-arrow">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </div>
+          </a>
+
+          <a href="https://github.com/Roberto-Vinicius" target="_blank" rel="noopener noreferrer" class="contact-item-card">
+            <div class="contact-card-iconbox github-color">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+            </div>
+            <div class="contact-card-info">
+              <span class="contact-card-label">GitHub</span>
+              <strong class="contact-card-val">github.com/Roberto-Vinicius</strong>
+            </div>
+            <div class="contact-card-arrow">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </div>
+          </a>
+
+          <a href="https://www.linkedin.com/in/robertoviniciusd" target="_blank" rel="noopener noreferrer" class="contact-item-card">
+            <div class="contact-card-iconbox linkedin-color">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.25c-.9 0-1.63.73-1.63 1.63 0 .9.73 1.63 1.63 1.63.9 0 1.63-.73 1.63-1.63 0-.9-.73-1.63-1.63-1.63z"/></svg>
+            </div>
+            <div class="contact-card-info">
+              <span class="contact-card-label">LinkedIn</span>
+              <strong class="contact-card-val">linkedin.com/in/robertoviniciusd</strong>
+            </div>
+            <div class="contact-card-arrow">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </div>
+          </a>
+
+          <a href="tel:+5584994056581" class="contact-item-card">
+            <div class="contact-card-iconbox phone-color">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div class="contact-card-info">
+              <span class="contact-card-label">{locale === "pt" ? "Telefone / WhatsApp" : "Phone / WhatsApp"}</span>
+              <strong class="contact-card-val">(84) 99405-6581</strong>
+            </div>
+            <div class="contact-card-arrow">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </div>
+          </a>
+        </div>
+
       </div>
     </section>
 
@@ -453,6 +690,25 @@ const projects = locale === "pt" ? [
         toggleBtn.setAttribute('aria-expanded', 'false');
       });
     });
+  }
+
+  // FPS Counter Real-time
+  const fpsEl = document.getElementById('fps-val');
+  if (fpsEl) {
+    let frameCount = 0;
+    let lastTime = performance.now();
+    function calcFps() {
+      frameCount++;
+      const now = performance.now();
+      if (now - lastTime >= 1000) {
+        const fps = Math.round((frameCount * 1000) / (now - lastTime));
+        if (fpsEl) fpsEl.textContent = `${fps} FPS`;
+        frameCount = 0;
+        lastTime = now;
+      }
+      requestAnimationFrame(calcFps);
+    }
+    requestAnimationFrame(calcFps);
   }
 </script>
 
@@ -666,6 +922,61 @@ const projects = locale === "pt" ? [
     transform: translateY(-2px);
   }
 
+  /* STATS FPS BADGE */
+  .stats-badge {
+    position: fixed;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    z-index: 99;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    background: rgba(3, 7, 18, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    padding: 0.35rem 0.85rem;
+    border-radius: 999px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 0 15px rgba(56, 189, 248, 0.15);
+    animation: zoomInDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  .stats-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #38bdf8;
+    box-shadow: 0 0 8px #38bdf8;
+    animation: pulseDot 2s infinite ease-in-out;
+  }
+  .stats-text {
+    font-family: monospace;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #38bdf8;
+    letter-spacing: 0.05em;
+  }
+  .stats-sub {
+    font-family: monospace;
+    font-size: 0.68rem;
+    color: #64748b;
+    border-left: 1px solid rgba(255, 255, 255, 0.15);
+    padding-left: 0.45rem;
+  }
+  @keyframes pulseDot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.85); }
+  }
+  @keyframes zoomInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px) scale3d(0.7, 0.7, 0.7);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale3d(1, 1, 1);
+    }
+  }
+
   .scroll-down-btn {
     position: absolute;
     bottom: 1.25rem;
@@ -722,12 +1033,30 @@ const projects = locale === "pt" ? [
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   }
 
-  .section-badge {
+  .section-badge-header,
+  .contact-badge-header {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .section-eyebrow,
+  .contact-eyebrow {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #e2e8f0;
     font-family: monospace;
-    font-size: 0.82rem;
-    color: #38bdf8;
-    letter-spacing: 0.1em;
-    margin-bottom: 0.6rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .teal-status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #14b8a6;
+    box-shadow: 0 0 10px #14b8a6;
   }
 
   .section-title {
@@ -830,18 +1159,49 @@ const projects = locale === "pt" ? [
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   }
   .pills-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(88px, 1fr));
+    gap: 0.75rem;
   }
-  .skill-pill {
-    background: rgba(56, 189, 248, 0.08);
-    border: 1px solid rgba(56, 189, 248, 0.2);
-    color: #bae6fd;
-    font-size: 0.8rem;
-    padding: 0.3rem 0.65rem;
-    border-radius: 6px;
+  .skill-pill-square {
+    background: rgba(56, 189, 248, 0.05);
+    border: 1px solid rgba(56, 189, 248, 0.15);
+    border-radius: 8px;
+    padding: 0.85rem 0.4rem 0.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    text-align: center;
+    aspect-ratio: 1 / 1;
+    transition: all 0.22s ease;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+  .skill-pill-square:hover {
+    background: rgba(56, 189, 248, 0.14);
+    border-color: rgba(56, 189, 248, 0.45);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px -4px rgba(56, 189, 248, 0.25);
+  }
+  .skill-pill-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #38bdf8;
+    transition: transform 0.2s ease, color 0.2s ease;
+  }
+  .skill-pill-square:hover .skill-pill-icon {
+    transform: scale(1.15);
+    color: #7dd3fc;
+  }
+  .skill-pill-name {
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: #e2e8f0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.2;
+    word-break: break-word;
   }
 
   /* TIMELINE / CAREER */
@@ -906,102 +1266,318 @@ const projects = locale === "pt" ? [
   /* PROJECTS */
   .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
   }
   .project-card {
-    background: rgba(15, 23, 42, 0.6);
+    background: rgba(15, 23, 42, 0.7);
     border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 8px;
-    padding: 1.75rem;
+    border-radius: 12px;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    transition: transform 0.2s, border-color 0.2s;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
   }
   .project-card:hover {
-    transform: translateY(-3px);
-    border-color: rgba(56, 189, 248, 0.35);
+    transform: translateY(-5px);
+    border-color: rgba(56, 189, 248, 0.4);
+    box-shadow: 0 12px 30px -10px rgba(14, 165, 233, 0.2);
   }
-  .project-tag {
-    font-family: monospace;
-    font-size: 0.75rem;
+  .project-media-wrapper {
+    position: relative;
+    width: 100%;
+    height: 190px;
+    background: #090e1a;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+  .project-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+  .project-card:hover .project-img {
+    transform: scale(1.05);
+  }
+  .project-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: radial-gradient(circle at 50% 40%, rgba(56, 189, 248, 0.08) 0%, rgba(15, 23, 42, 0.95) 100%);
+  }
+  .placeholder-grid-lines {
+    position: absolute;
+    inset: 0;
+    background-image: 
+      linear-gradient(to right, rgba(56, 189, 248, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(56, 189, 248, 0.04) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+  .placeholder-icon {
+    color: rgba(56, 189, 248, 0.5);
+    margin-bottom: 0.5rem;
+    z-index: 1;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  .project-card:hover .placeholder-icon {
+    transform: translateY(-2px);
     color: #38bdf8;
-    margin-bottom: 0.6rem;
+  }
+  .placeholder-text {
+    font-size: 0.78rem;
+    color: #64748b;
+    font-family: monospace;
+    letter-spacing: 0.05em;
+    z-index: 1;
+  }
+  .project-tag-overlay {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    font-family: monospace;
+    font-size: 0.7rem;
+    color: #38bdf8;
+    background: rgba(3, 7, 18, 0.85);
+    backdrop-filter: blur(6px);
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    z-index: 2;
+  }
+  .project-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
   }
   .project-title {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     color: #f8fafc;
     margin: 0 0 0.75rem;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.35;
   }
   .project-desc {
-    font-size: 0.92rem;
+    font-size: 0.9rem;
     color: #94a3b8;
     line-height: 1.6;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
+    flex-grow: 1;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  .project-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1.5rem;
+  }
+  .project-pill {
+    font-size: 0.72rem;
+    font-family: monospace;
+    background: rgba(56, 189, 248, 0.06);
+    border: 1px solid rgba(56, 189, 248, 0.18);
+    color: #7dd3fc;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+  }
+  .project-bottom {
+    margin-top: auto;
+    padding-top: 0.5rem;
   }
   .project-link-btn {
     display: inline-flex;
     align-items: center;
-    gap: 0.4rem;
+    gap: 0.5rem;
     color: #38bdf8;
     font-size: 0.88rem;
     font-weight: 600;
     text-decoration: none;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    transition: gap 0.2s ease, color 0.2s ease;
   }
   .project-link-btn:hover {
-    text-decoration: underline;
+    color: #7dd3fc;
+    gap: 0.75rem;
+  }
+  .btn-arrow {
+    transition: transform 0.2s ease;
+  }
+  .project-link-btn:hover .btn-arrow {
+    transform: translateX(3px);
   }
 
-  /* CONTACT */
-  .contact-card {
-    background: rgba(15, 23, 42, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 12px;
-    padding: 2.5rem;
-    text-align: center;
-    max-width: 680px;
-    margin: 0 auto;
+  /* =========================================================
+     CONTACT SPLIT SECTION (2 COLUMNS)
+     ========================================================= */
+  .contact-split-section {
+    padding: 4.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   }
-  .contact-lead {
-    font-size: 1.05rem;
-    color: #cbd5e1;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
+  .contact-split-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 3.5rem;
+    align-items: center;
+  }
+  .contact-badge-header {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  .teal-status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #14b8a6;
+    box-shadow: 0 0 10px #14b8a6;
+  }
+  .contact-eyebrow {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #f8fafc;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   }
-  .email-cta {
-    display: inline-block;
-    font-size: clamp(1.1rem, 3vw, 1.5rem);
-    color: #38bdf8;
+  .contact-headline {
+    font-size: clamp(1.75rem, 3.2vw, 2.4rem);
     font-weight: 700;
-    text-decoration: none;
-    margin-bottom: 2rem;
-    padding: 0.5rem 1rem;
-    border-bottom: 2px solid rgba(56, 189, 248, 0.4);
-    transition: all 0.2s;
+    line-height: 1.25;
+    color: #ffffff;
+    margin: 0 0 1.25rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   }
-  .email-cta:hover {
-    border-color: #38bdf8;
-    transform: scale(1.02);
-  }
-  .contact-links-row {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1.25rem;
-  }
-  .contact-link {
+  .contact-subtext {
+    font-size: 1rem;
+    line-height: 1.6;
     color: #94a3b8;
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: color 0.2s;
+    margin-bottom: 2rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   }
-  .contact-link:hover {
-    color: #f8fafc;
+  .contact-action-btns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .btn-primary-orange {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: #ea580c;
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(234, 88, 12, 0.35);
+    transition: all 0.2s ease;
+  }
+  .btn-primary-orange:hover {
+    background: #f97316;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(234, 88, 12, 0.5);
+  }
+  .btn-secondary-dark {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: rgba(30, 41, 59, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .btn-secondary-dark:hover {
+    background: rgba(51, 65, 85, 0.9);
+    border-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+  }
+
+  /* Right column cards stack */
+  .contact-right-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+  .contact-item-card {
+    display: flex;
+    align-items: center;
+    gap: 1.1rem;
+    background: rgba(15, 23, 42, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .contact-item-card:hover {
+    background: rgba(30, 41, 59, 0.7);
+    border-color: rgba(56, 189, 248, 0.35);
+    transform: translateX(4px);
+  }
+  .contact-card-iconbox {
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .email-color { background: rgba(234, 88, 12, 0.15); color: #f97316; }
+  .github-color { background: rgba(255, 255, 255, 0.1); color: #f8fafc; }
+  .linkedin-color { background: rgba(14, 165, 233, 0.15); color: #38bdf8; }
+  .phone-color { background: rgba(20, 184, 166, 0.15); color: #2dd4bf; }
+
+  .contact-card-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    flex-grow: 1;
+    overflow: hidden;
+  }
+  .contact-card-label {
+    font-size: 0.78rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+    font-family: monospace;
+    letter-spacing: 0.05em;
+  }
+  .contact-card-val {
+    font-size: 0.95rem;
+    color: #f1f5f9;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  .contact-card-arrow {
+    color: #64748b;
+    transition: transform 0.2s ease, color 0.2s ease;
+  }
+  .contact-item-card:hover .contact-card-arrow {
+    color: #38bdf8;
+    transform: translate(2px, -2px);
+  }
+
+  @media (max-width: 900px) {
+    .contact-split-grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+    .tech-cards-grid {
+      grid-template-columns: repeat(auto-fill, minmax(95px, 1fr));
+    }
   }
 
   /* FOOTER */

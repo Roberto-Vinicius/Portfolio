@@ -34,20 +34,10 @@ const authors = ["Roberto Vinicius Dantas Batista"];
   image={content.cover}
   imageAlt={content.coverAlt}
   ogType="website"
-  immersive
   bookPage
   showLocaleSwitch
 >
   <div class="book-landing-shell">
-    <iframe
-      class="book-landing__frame"
-      data-book-wormhole-frame
-      src={`/wormhole-home.html?locale=${locale}&amazon=${encodeURIComponent(content.amazonUrl)}&apple=${encodeURIComponent(content.appleBooksUrl)}`}
-      title={locale === "pt" ? "Cenário espacial" : "Space scene"}
-      aria-hidden="true"
-      tabindex="-1"
-    ></iframe>
-
     <article class="book-landing" aria-labelledby="book-title">
       <div class="book-landing__visual">
         <a
@@ -205,7 +195,6 @@ const authors = ["Roberto Vinicius Dantas Batista"];
     </dialog>
   </div>
 </BaseLayout>
-<script src="../../../scripts/book-landing.ts"></script>
 
 <style>
   .book-landing__breadcrumb {

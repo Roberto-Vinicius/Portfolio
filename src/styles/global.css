@@ -337,7 +337,30 @@ h1 {
   }
 }
 
-/* Keep site-wide landing defaults from affecting the upstream immersive demo. */
+body.gradient-page {
+  position: relative;
+  background: radial-gradient(circle at 50% 0%, #0f172a 0%, #030712 60%, #000208 100%);
+  background-attachment: fixed;
+  color: #f1f5f9;
+  min-height: 100vh;
+}
+
+body.gradient-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(14, 165, 233, 0.15), transparent),
+    radial-gradient(ellipse 60% 40% at 100% 50%, rgba(56, 189, 248, 0.05), transparent),
+    radial-gradient(ellipse 60% 40% at 0% 80%, rgba(30, 58, 138, 0.12), transparent);
+  pointer-events: none;
+  z-index: 0;
+}
+
+body.gradient-page main {
+  position: relative;
+  z-index: 1;
+}
 html.immersive,
 body.immersive {
   width: 100%;
