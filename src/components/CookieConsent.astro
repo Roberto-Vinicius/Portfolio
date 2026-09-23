@@ -1,0 +1,55 @@
+---
+import type { Locale } from "../data/books";
+const { locale } = Astro.props as { locale: Locale };
+
+const bannerText =
+  locale === "pt"
+    ? "Utilizamos cookies e tecnologias essenciais para melhorar sua experiência no site."
+    : "We use essential cookies and technologies to enhance your experience.";
+const acceptText = locale === "pt" ? "Aceitar" : "Accept";
+---
+<div id="cookie-consent" class="cookie-banner" hidden>
+  <p>{bannerText}</p>
+  <button id="accept-cookies" type="button">{acceptText}</button>
+</div>
+
+<script>
+  const banner = document.getElementById("cookie-consent");
+  const button = document.getElementById("accept-cookies");
+
+  if (!localStorage.getItem("cookie-consent")) {
+    banner?.removeAttribute("hidden");
+  }
+
+  button?.addEventListener("click", () => {
+    localStorage.setItem("cookie-consent", "true");
+    banner?.setAttribute("hidden", "true");
+  });
+</script>
+
+<style>
+  .cookie-banner {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    max-width: 320px;
+    background: rgba(15, 23, 42, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 1rem;
+    border-radius: 8px;
+    z-index: 100;
+    backdrop-filter: blur(8px);
+    color: #cbd5e1;
+    font-size: 0.85rem;
+  }
+  .cookie-banner button {
+    margin-top: 0.5rem;
+    background: #38bdf8;
+    color: #0f172a;
+    border: none;
+    padding: 0.35rem 0.75rem;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+</style>

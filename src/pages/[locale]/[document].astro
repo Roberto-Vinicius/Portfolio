@@ -1,0 +1,87 @@
+---
+import type { GetStaticPaths } from "astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { legalDocuments } from "../../data/legal";
+import type { Locale } from "../../data/books";
+
+export const getStaticPaths = (() => {
+  return legalDocuments.map((doc) => ({
+    params: { locale: doc.locale, document: doc.slug },
+    props: { doc },
+  }));
+}) satisfies GetStaticPaths;
+
+const { doc } = Astro.props;
+const alternateLocale: Locale = doc.locale === "pt" ? "en" : "pt";
+const alternateDoc = legalDocuments.find(
+  (candidate) => candidate.locale === alternateLocale,
+);
+const alternatePaths = {
+  [doc.locale]: doc.path,
+  [alternateLocale]: alternateDoc?.path ?? `/${alternateLocale}/`,
+} as Record<Locale, string>;
+---
+<BaseLayout
+  title={doc.title}
+  description={doc.description}
+  locale={doc.locale}
+  path={doc.path}
+  alternatePaths={alternatePaths}
+  showLocaleSwitch
+>
+  <article class="document-page">
+    <header>
+      <p class="document-page__status">{doc.status}</p>
+      <h1>{doc.title}</h1>
+    </header>
+    {doc.sections.map((section) => (
+      <section>
+        <h2>{section.heading}</h2>
+        {section.paragraphs.map((p) => <p>{p}</p>)}
+        {section.items && (
+          <ul>
+            {section.items.map((item) => <li>{item}</li>)}
+          </ul>
+        )}
+      </section>
+    ))}
+    <p>
+      <a href={`/${doc.locale}/`}>{doc.locale === "pt" ? "← Voltar ao início" : "← Back to home"}</a>
+    </p>
+  </article>
+</BaseLayout>
+
+<style>
+  .document-page {
+    max-width: 720px;
+    margin: 4rem auto;
+    padding: 0 1.5rem;
+    color: #f1f5f9;
+    font-family: inherit;
+    line-height: 1.7;
+  }
+  .document-page h1 {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    color: #e2e8f0;
+  }
+  .document-page h2 {
+    font-size: 1.4rem;
+    margin-top: 2rem;
+    color: #cbd5e1;
+  }
+  .document-page p {
+    margin-bottom: 1rem;
+    color: #94a3b8;
+  }
+  .document-page a {
+    color: #60a5fa;
+    text-decoration: underline;
+  }
+  .document-page__status {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.8rem;
+    color: #38bdf8;
+  }
+</style>

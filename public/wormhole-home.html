@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wormhole Extreme Three.js Experiment</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <base href="/vendor/wormhole-extreme/" />
+    <meta name="description" id="description" content="An interactive #space scene rendered on the #browser using #WebGL and #ThreeJS by @raintek_" />
+    <meta name="author" content="Rainner Lins | @raintek_ | http://rainnerlins.com | https://github.com/rainner" />
+    <meta name="copyright" content="&copy; All Rights Reserved - 2016" />
+
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link type="text/css" rel="stylesheet" href="/vendor/wormhole-extreme/dist/css/bundle.min.css" />
+    <style>
+        .stats {
+            display: none !important;
+            visibility: hidden !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
+        }
+            html,
+            body {
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+            }
+
+        .icon-amazon:before,
+        .icon-apple:before {
+            font-family: Arial, sans-serif !important;
+            font-weight: 700 !important;
+            margin-right: 10px !important;
+        }
+
+        .icon-amazon:before {
+            content: "a";
+            font-size: 1.15em;
+        }
+
+        /* The upstream demo enables its FPS counter after initialization. Keep it hidden in production. */
+        .stats,
+        .stats.active,
+        .share,
+        .share.active,
+        .container.content,
+        .container.content.active,
+        .btn,
+        [data-share] {
+            display: none !important;
+            visibility: hidden !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
+        }
+
+        .wormhole-legal-icon {
+            display: inline-block;
+            width: 1em;
+            height: 1em;
+            vertical-align: middle;
+            fill: currentColor;
+        }
+
+        .icon-apple:before {
+            content: "";
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="loader active"></div>
+
+    <div class="stats center animated zoomInDown" style="display: none !important;"></div>
+
+    <div class="container error center fadeIn" style="display: none">
+        <span class="error-icon icon-error"></span>
+        <h1 class="error-title">Oops, there's a problem.</h1>
+        <p class="error-info"></p>
+        <button type="button" class="icon-rocket" onclick="top.location.reload( true )">Try again</button>
+    </div>
+
+    <div class="container content center animated fadeIn" style="display: none !important;">
+        <button id="hyper-btn" style="display: none !important;"></button>
+    </div>
+
+    <div class="share center animated zoomInUp" style="display: none !important;">
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r75/three.min.js"></script>
+    <script src="/vendor/wormhole-extreme/dist/js/polyfills.js"></script>
+    <script src="/vendor/wormhole-extreme/dist/js/bundle.min.js"></script>
+    <script src="/vendor/wormhole-extreme/dist/js/app.js"></script>
+    <script>
+        (function () {
+            // retail links handled by Astro
+        })();
+    </script>
+
+</body>
+</html>
