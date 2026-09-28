@@ -101,15 +101,22 @@ const experiences = locale === "pt" ? [
     role: "Desenvolvedor de Software",
     company: "@SESAP/RN — Secretaria de Estado da Saúde Pública",
     period: "Jan 2025 - Presente",
-    description: "Responsável pelo desenvolvimento e sustentação do site e sistemas governamentais da SESAP/RN. Implementação de novos sistemas na área de saúde com PHP (Laravel) e Vue.js, garantindo alta disponibilidade, estabilidade e arquitetura moderna.",
-    tags: ["PHP", "Laravel", "Vue.js", "PostgreSQL", "REST APIs"],
+    description: "Responsável pelo desenvolvimento e sustentação do site e sistemas governamentais da SESAP/RN. Implementação de novos sistemas na área de saúde utilizando PHP (Laravel), Vue.js, JavaScript, Python e Java, apoiado por frameworks como React e Bootstrap, garantindo alta disponibilidade, estabilidade e arquitetura moderna.",
+    tags: ["PHP", "Laravel", "Vue.js", "JavaScript", "Python", "Java", "React", "Bootstrap", "PostgreSQL", "REST APIs"],
   },
   {
     role: "DevOps & Engenharia de Infraestrutura",
     company: "@SESAP/RN — Secretaria de Estado da Saúde Pública",
     period: "Jan 2025 - Presente",
-    description: "Desenvolvimento e sustentação de infraestrutura containerizada com Docker e Docker Compose. Implementação de pipelines automatizados de CI/CD, monitoramento Git, rollback automático, rotinas de backup comprimido com verificação de integridade e microsserviços (PHP-FPM 8.2, Nginx, PostgreSQL) com zero-downtime deploy.",
-    tags: ["Docker", "Docker Compose", "Nginx", "CI/CD", "Bash", "PostgreSQL", "Linux"],
+    description: "Desenvolvimento e sustentação de infraestrutura containerizada para aplicações Laravel com Docker e Docker Compose. Implementação de pipelines automatizados de CI/CD, monitoramento Git, rollback automático, rotinas de backup comprimido com verificação de integridade e arquitetura de microsserviços (PHP-FPM 8.2, Nginx, PostgreSQL) com zero-downtime deploy.",
+    tags: ["Docker", "Docker Compose", "Nginx", "CI/CD", "Bash", "PostgreSQL", "Linux", "Laravel", "Node.js"],
+  },
+  {
+    role: "Manutenção de Máquinas e Suporte de TI",
+    company: "@SESAP/RN — Secretaria de Estado da Saúde Pública",
+    period: "Jan 2025 - Jul 2025",
+    description: "Atuação na manutenção preventiva e corretiva de computadores e máquinas do parque tecnológico da secretaria. Finalizada a atuação de suporte em julho de 2025, seguindo exclusivamente com as demandas de Desenvolvimento de Software e DevOps na mesma instituição.",
+    tags: ["Hardware", "Manutenção", "Suporte Técnico", "Windows", "Linux"],
   },
   {
     role: "Bolsista / Analista de Suporte de TI",
@@ -123,21 +130,28 @@ const experiences = locale === "pt" ? [
     role: "Software Developer",
     company: "@SESAP/RN — State Health Secretariat",
     period: "Jan 2025 - Present",
-    description: "Responsible for developing and maintaining official systems and web portals for SESAP/RN. Building reliable public health applications with PHP (Laravel) and Vue.js.",
-    tags: ["PHP", "Laravel", "Vue.js", "PostgreSQL", "REST APIs"],
+    description: "Responsible for developing and maintaining official systems and web portals for SESAP/RN. Building new public health systems using PHP (Laravel), Vue.js, JavaScript, Python and Java, supported by frameworks such as React and Bootstrap, ensuring high availability, stability and modern architecture.",
+    tags: ["PHP", "Laravel", "Vue.js", "JavaScript", "Python", "Java", "React", "Bootstrap", "PostgreSQL", "REST APIs"],
   },
   {
     role: "DevOps & Infrastructure Engineer",
     company: "@SESAP/RN — State Health Secretariat",
     period: "Jan 2025 - Present",
-    description: "Architecting and managing containerized infrastructures with Docker and Docker Compose. Building automated CI/CD pipelines, Git tracking, automated rollback, backup automation scripts with validation, and microservices (PHP-FPM, Nginx, PostgreSQL) with zero-downtime deploy.",
-    tags: ["Docker", "Docker Compose", "Nginx", "CI/CD", "Bash", "PostgreSQL", "Linux"],
+    description: "Development and management of containerized infrastructure for Laravel applications with Docker and Docker Compose. Building automated CI/CD pipelines, Git tracking, automated rollback, compressed backup routines with integrity verification, and microservices architecture (PHP-FPM 8.2, Nginx, PostgreSQL) with zero-downtime deploy.",
+    tags: ["Docker", "Docker Compose", "Nginx", "CI/CD", "Bash", "PostgreSQL", "Linux", "Laravel", "Node.js"],
+  },
+  {
+    role: "Hardware Maintenance & IT Support",
+    company: "@SESAP/RN — State Health Secretariat",
+    period: "Jan 2025 - Jul 2025",
+    description: "Preventive and corrective maintenance of computers and machines in the secretariat's technology fleet. Support activities concluded in July 2025, continuing exclusively with Software Development and DevOps responsibilities at the same institution.",
+    tags: ["Hardware", "Maintenance", "Tech Support", "Windows", "Linux"],
   },
   {
     role: "IT Support Analyst",
     company: "@BCZM / UFRN — Central University Library",
     period: "Oct 2023 - Jul 2024",
-    description: "Providing tech support to university users, maintaining computer hardware workstations, configuring enterprise software, and maintaining local network cabling infrastructure.",
+    description: "Providing tech support to university users, maintaining computer hardware workstations, configuring enterprise software, and maintaining local structured network cabling infrastructure.",
     tags: ["Hardware", "Networking", "Tech Support", "Linux / Windows"],
   },
 ];
@@ -147,50 +161,50 @@ const projects = locale === "pt" ? [
     tag: "01 · DevOps · Docker · CI/CD · Nginx",
     title: "Infraestrutura Containerizada & CI/CD SESAP",
     description: "Arquitetura completa de microsserviços containerizados para ambiente público de produção com Docker, automação de backups, monitoramento de integridade e rollback automático.",
-    link: "https://github.com/Roberto-Vinicius",
-    image: "", // Insira o caminho da imagem futuramente, ex: "/media/projeto-1.png"
+    link: "https://gti.saude.rn.gov.br/",
+    image: "/media/projeto-infra-sesap.jpeg",
     tags: ["Docker", "Docker Compose", "CI/CD", "Nginx", "PostgreSQL", "Bash"]
   },
   {
     tag: "02 · Full Stack · Laravel · Vue.js · Postgres",
     title: "Sistemas Governamentais de Saúde Pública",
     description: "Aplicações escaláveis desenvolvidas em PHP (Laravel) e Vue.js integradas ao banco PostgreSQL para sustentação e modernização das rotinas da SESAP/RN.",
-    link: "https://github.com/Roberto-Vinicius",
-    image: "",
+    link: "https://gti.saude.rn.gov.br/",
+    image: "/media/projeto-ugtsic.png",
     tags: ["PHP", "Laravel", "Vue.js", "PostgreSQL", "REST APIs"]
   },
   {
-    tag: "03 · WebGL · Three.js · Astro · Interativo",
-    title: "Portfólio Espacial Interativo 3D",
-    description: "Portfólio com simulação espacial 3D em Three.js, partículas interativas e arquitetura estática de alta performance no Astro.",
-    link: "https://github.com/Roberto-Vinicius",
+    tag: "03 · React · Node.js · Em breve",
+    title: "BarberApp — Agendamento para Barbearias",
+    description: "Plataforma web para barbearias com sistema de agendamento online, lembretes automáticos para clientes e painel de organização em planilha para os barbeiros gerenciarem sua agenda.",
+    link: "",
     image: "",
-    tags: ["Astro", "TypeScript", "Three.js", "WebGL", "CSS Moderno"]
+    tags: ["React", "Node.js", "PostgreSQL", "REST APIs"]
   },
 ] : [
   {
     tag: "01 · DevOps · Docker · CI/CD · Nginx",
     title: "Containerized Infrastructure & CI/CD SESAP",
     description: "Complete microservices container architecture for government production environments with Docker, automated backups, and rollback pipelines.",
-    link: "https://github.com/Roberto-Vinicius",
-    image: "",
+    link: "https://gti.saude.rn.gov.br/",
+    image: "/media/projeto-infra-sesap.jpeg",
     tags: ["Docker", "Docker Compose", "CI/CD", "Nginx", "PostgreSQL", "Bash"]
   },
   {
     tag: "02 · Full Stack · Laravel · Vue.js · Postgres",
     title: "Public Health Management Systems",
     description: "Scalable enterprise web applications built with PHP (Laravel) and Vue.js with PostgreSQL backend integrations for state health administration.",
-    link: "https://github.com/Roberto-Vinicius",
-    image: "",
+    link: "https://gti.saude.rn.gov.br/",
+    image: "/media/projeto-ugtsic.png",
     tags: ["PHP", "Laravel", "Vue.js", "PostgreSQL", "REST APIs"]
   },
   {
-    tag: "03 · WebGL · Three.js · Astro · Interactive",
-    title: "Interactive 3D Space Portfolio",
-    description: "Interactive portfolio featuring real-time Three.js WebGL space simulation, custom interactive particle rendering, and fast Astro architecture.",
-    link: "https://github.com/Roberto-Vinicius",
+    tag: "03 · React · Node.js · Coming Soon",
+    title: "BarberApp — Barbershop Scheduling Platform",
+    description: "Web platform for barbershops featuring online appointment scheduling, automated reminders for clients, and a spreadsheet-style management panel for barbers to organize their agenda.",
+    link: "",
     image: "",
-    tags: ["Astro", "TypeScript", "Three.js", "WebGL", "Modern CSS"]
+    tags: ["React", "Node.js", "PostgreSQL", "REST APIs"]
   },
 ];
 ---
@@ -706,8 +720,8 @@ const projects = locale === "pt" ? [
 
           <h2 class="contact-headline">
             {locale === "pt" 
-              ? "Se você precisa de um dev para tirar uma ideia do papel com mais profissionalismo, vamos conversar."
-              : "If you need a developer to bring your vision to life with true professionalism, let's talk."}
+              ? "Desenvolvedor Freelancer Full Stack para tirar o sistema da sua empresa do papel."
+              : "Freelancer Full Stack Developer to bring your company's system to life."}
           </h2>
 
           <p class="contact-subtext">
@@ -803,7 +817,7 @@ const projects = locale === "pt" ? [
   // Script para o menu mobile da Toolbar
   const toggleBtn = document.getElementById('mobile-toggle');
   const mobileMenu = document.getElementById('mobile-menu');
-  const navLinks = document.querySelectorAll('.mobile-nav-link');
+  const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
 
   if (toggleBtn && mobileMenu) {
     toggleBtn.addEventListener('click', () => {
@@ -811,13 +825,56 @@ const projects = locale === "pt" ? [
       toggleBtn.setAttribute('aria-expanded', String(isOpen));
     });
 
-    navLinks.forEach((link) => {
+    mobileNavLinks.forEach((link) => {
       link.addEventListener('click', () => {
         mobileMenu.classList.remove('active');
         toggleBtn.setAttribute('aria-expanded', 'false');
       });
     });
   }
+
+  // Ativa o item do nav correspondente à seção visível
+  const allNavLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+
+  const sections = document.querySelectorAll('section[id], div[id]');
+
+  function setActiveLink(id: string) {
+    allNavLinks.forEach((link) => {
+      const href = link.getAttribute('href');
+      if (href === `#${id}`) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+  }
+
+  // Clique manual — ativa imediatamente e aguarda mudança por scroll
+  allNavLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+      const href = link.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        const id = href.slice(1);
+        setActiveLink(id);
+      }
+    });
+  });
+
+  // IntersectionObserver — detecta seção visível automaticamente no scroll
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveLink(entry.target.id);
+        }
+      });
+    },
+    { rootMargin: '-40% 0px -50% 0px', threshold: 0 }
+  );
+
+  sections.forEach((section) => {
+    if (section.id) observer.observe(section);
+  });
 
   // FPS Counter Real-time
   const fpsEl = document.getElementById('fps-val');
@@ -908,6 +965,12 @@ const projects = locale === "pt" ? [
     background: rgba(56, 189, 248, 0.08);
   }
 
+  .nav-link.active {
+    color: #38bdf8;
+    background: rgba(56, 189, 248, 0.12);
+    border-bottom: 2px solid #38bdf8;
+  }
+
   .toolbar-actions {
     display: flex;
     align-items: center;
@@ -971,6 +1034,12 @@ const projects = locale === "pt" ? [
     font-size: 1rem;
     display: block;
     padding: 0.4rem 0;
+    transition: color 0.2s ease;
+  }
+
+  .mobile-nav-link.active {
+    color: #38bdf8;
+    font-weight: 600;
   }
 
   @media (max-width: 768px) {
