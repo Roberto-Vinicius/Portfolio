@@ -1,7 +1,7 @@
 import { defineConfig } from "astro/config";
 
 export default defineConfig({
-  site: "https://example.com",
+  site: "https://robertoviniciusdev.netlify.app",
   output: "static",
   trailingSlash: "always",
   devToolbar: {
